@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -40,8 +40,7 @@ test:
   imports:
     - airflow.sdk
   commands:
-    # skipping pip check for now because of circular dependencies
-    # - pip check
+    - pip check
   requires:
     - python {{ python_min }}
     - pip
