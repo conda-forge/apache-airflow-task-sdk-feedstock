@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -21,8 +21,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<3.13
-    # circular dependency, so we'll exclude it for now
-    # - apache-airflow-core <=3.1.0,>=3.0.0
+    - apache-airflow-core <=3.1.0,>=3.0.0
     - aiologic >=0.14.0
     - attrs >=24.2.0,!=25.2.0
     - fsspec >=2023.10.0
@@ -41,8 +40,7 @@ test:
   imports:
     - airflow.sdk
   commands:
-    # skipping pip check for now because of circular dependencies
-    # - pip check
+    - pip check
   requires:
     - python {{ python_min }}
     - pip
