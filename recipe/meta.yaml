@@ -1,5 +1,5 @@
 {% set name = "apache-airflow-task-sdk" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/apache_airflow_task_sdk-{{ version }}.tar.gz
-  sha256: 80ce010760f5f8cf90eb7a51d696681167c46a332cded32be97ca525061bc549
+  sha256: 1772e27aa8a5306c70092beb58a96e2935cd3265ddda4e1f9e1930221091f4a4
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,7 +21,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<3.13
-    - apache-airflow-core <3.1.0,>=3.0.2
+    - apache-airflow-core <3.1.0,>=3.0.3
     - aiologic >=0.14.0
     - attrs >=24.2.0,!=25.2.0
     - fsspec >=2023.10.0
