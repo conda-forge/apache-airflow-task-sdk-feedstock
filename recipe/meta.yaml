@@ -20,7 +20,6 @@ requirements:
     - hatchling
     - pip
   run:
-    - babel >=2.17.0
     - python >={{ python_min }},<3.14
     # - apache-airflow-core <3.2.0,>=3.1.1
     - asgiref >=2.3.0
@@ -42,6 +41,7 @@ requirements:
     - colorlog >=6.8.2
     - pydantic >2.11.0
     - pygtrie >=2.5.0
+    - babel >=2.17.0
 
 test:
   imports:
