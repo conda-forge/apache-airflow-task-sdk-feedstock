@@ -43,7 +43,6 @@ requirements:
     - pydantic >2.11.0
     - pygtrie >=2.5.0
 
- temporarily disable because of circular dependency
  tests:
   - python:
       imports:
