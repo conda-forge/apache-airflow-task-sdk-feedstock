@@ -44,13 +44,13 @@ requirements:
     - pydantic >2.11.0
     - pygtrie >=2.5.0
 
-tests:
-  - python:
-      imports:
-        - airflow.sdk
-      # temporarily disable because of circular dependency
-      # pip_check: true
-      python_version: ${{ python_min }}.*
+# temporarily disable because of circular dependency
+# tests:
+#  - python:
+#      imports:
+#        - airflow.sdk
+#      pip_check: true
+#      python_version: ${{ python_min }}.*
 
 about:
   summary: Python Task SDK for Apache Airflow DAG Authors
