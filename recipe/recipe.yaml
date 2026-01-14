@@ -47,13 +47,8 @@ tests:
   - python:
       imports:
         - airflow.sdk
+      pip_check: true
       python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - python ${{ python_min }}.*
-        - pip
-    script:
-      - pip check
 
 about:
   summary: Python Task SDK for Apache Airflow DAG Authors
