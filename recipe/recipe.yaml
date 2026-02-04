@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: apache-airflow-task-sdk
-  version: 1.1.6
+  version: 1.1.7
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/apache_airflow_task_sdk-${{ version }}.tar.gz
-  sha256: 731e7931d18de3f53438eac36e93b43a06e126ec675b0c13d727a8b75892eb5a
+  sha256: 658815d5d93c8b3e04432c50d31bcec382f4637466ea558bc13e97907c725bc5
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -24,7 +24,8 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }},<3.14
-    - apache-airflow-core <3.2.0,>=3.1.5
+    # temporarily remove circular dependency
+    # - apache-airflow-core <3.2.0,>=3.1.7
     - asgiref >=2.3.0
     - attrs >=24.2.0,!=25.2.0
     - babel >=2.17.0
@@ -42,13 +43,13 @@ requirements:
     - colorlog >=6.8.2
     - pydantic >2.11.0
     - pygtrie >=2.5.0
-
-tests:
- - python:
-     imports:
-       - airflow.sdk
-     pip_check: true
-     python_version: ${{ python_min }}.*
+# temporarily remove circular dependency
+# tests:
+#   - python:
+#       imports:
+#         - airflow.sdk
+#       pip_check: true
+#       python_version: ${{ python_min }}.*
 
 about:
   summary: Python Task SDK for Apache Airflow DAG Authors
